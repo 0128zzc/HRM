@@ -1,0 +1,32 @@
+@import './color.scss';
+
+
+
+button.transparent.theme{
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    .darkMode &{
+        color: #aaa;
+    }
+    .lightMode &{
+        color: #777;
+    }
+
+    .icon{
+        vertical-align: text-top;
+    }
+
+    &:hover{
+        .darkMode &{
+            color: #ddd;
+        }
+        .lightMode &{
+            color: #999
+        }
+    }
+}
+
+
+
+

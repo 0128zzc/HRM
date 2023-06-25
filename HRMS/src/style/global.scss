@@ -1,0 +1,62 @@
+@import './color.scss';
+
+
+//遮罩层
+.mask{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+//icomoon图标
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?3rbeuw');
+  src:  url('fonts/icomoon.eot?3rbeuw#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?3rbeuw') format('truetype'),
+    url('fonts/icomoon.woff?3rbeuw') format('woff'),
+    url('fonts/icomoon.svg?3rbeuw#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+.icon{
+  font-family: 'icomoon';
+  vertical-align: bottom;
+}
+
+//基本容器
+.basic-container{
+  transition: all 0.2s;
+  padding: 10px;
+  border-radius: 15px;
+  .lightMode &{
+  border: 1px solid #d7d7d7;
+  border-top-color:#eee;
+  border-left-color: #eee;
+  }
+  .darkMode &{
+    border: 1px solid #444;
+    border-top-color: #333;
+    border-left-color: #333;
+    }
+}
+
+//毛玻璃面板
+.glass-panel{
+  backdrop-filter: blur(50px);
+  .darkMode &{
+    opacity: 0.8;
+    background-color:#222121;
+    border: 1px solid #22212133;
+  }
+
+  .lightMode & {
+    opacity: 0.7;
+    background-color: #f1f1f1;
+    border: 1px solid #f1f1f133;
+}
+}
+
