@@ -14,8 +14,6 @@
         </main>
     </div>
 </template>
-
-
 <script>
 import SideBar from './SideBar.vue';
 import TopBar from './topbar/index.vue';
