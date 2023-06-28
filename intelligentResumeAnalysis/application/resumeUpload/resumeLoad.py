@@ -8,7 +8,7 @@ def Hello():
     return "Helloo"
 
 
-@resumeload_bp.route('uploadSum')
+@resumeload_bp.route('/uploadSum')
 def getUploadSum():
     results = Upload.query.count()
     return jsonify({"data":results})

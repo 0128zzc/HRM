@@ -18,4 +18,5 @@ class Applications(db.Model):
     traits = db.Column(db.String(100))
     interest = db.Column(db.String(100))
     salary =db.Column(db.Integer)
+    time = db.Column(db.Date)
 

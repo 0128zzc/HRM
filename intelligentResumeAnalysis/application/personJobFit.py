@@ -5,12 +5,14 @@ personfit_bp = Blueprint("person",__name__)
 
 @personfit_bp.route('/')
 def hello():
-    return "Hi"
+    return "Manny!"
 
 @personfit_bp.route("/selectPerson",methods=["GET"])
 def getCandidates():
     age_s = int(request.args.get("startAge"))
     age_e = int(request.args.get("endAge"))
+    # age_e = int(request.args.get("workStart/workEnd"))
+
     print(age_e)
     sex = request.args.get("sex")
     education= request.args.get("education")
@@ -61,6 +63,6 @@ def getCandidates():
                                                        Applications.name == name_dict.appName,Applications.schoolGrade == schoolType,Applications.educations==education).first
                     dict_list.append(result.__dict__)
     json_results = [{ k:v for k,v in d.items() if k!= "_sa_instance_state"  } for d in dict_list]
-    return jsonify({"data":json_results})
+    return json_results
 
 
