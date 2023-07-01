@@ -1,0 +1,156 @@
+
+$danger-btn-color: #F25454;
+$primary-btn-color:#3d66e4;
+$success-btn-color:#12A763;
+
+
+//修改默认按钮颜色
+.el-button--primary{
+	background-color: $primary-btn-color;
+	border-radius: 4px;
+	//border: 1px solid $primary-btn-color;
+	font-size: 16px;
+	border: 0;
+	
+}
+
+//修改危险按钮的颜色
+.el-button--danger{
+	background-color: $danger-btn-color;
+	border-radius: 4px;
+	//border: 1px solid $danger-btn-color;
+	font-size: 16px;
+	border: 0;
+}
+
+//修改成功按钮的颜色
+.el-button--success{
+	background-color: $success-btn-color;
+	border-radius: 4px;
+	//border: 1px solid $success-btn-color;
+	font-size: 16px;
+	border: 0;
+	
+}
+
+//修改默认按钮的颜色
+.el-button--default{
+	font-size: 16px;
+	border-radius: 4px;
+}
+
+
+
+//修改成功按钮的颜色
+.el-button--warning{
+	//background-color: $success-btn-color;
+	border-radius: 4px;
+	//border: 1px solid $success-btn-color;
+	font-size: 16px;
+	border: 0;
+	
+}
+.el-upload{
+    width: 100%;
+    background-color: transparent;
+
+}
+.el-upload-dragger{
+    border-color: transparent;
+    background-color: transparent;
+    width: 600px;
+    height: 400px;
+    border: transparent;
+    // position:absolute;
+    // left: 38%;
+    // top: 15%;
+}
+.el-upload-list{
+	height: 110px;
+	width: 100%;
+	// width: 100%;
+	// height: 110%;
+}
+.el-upload-list__item-name {
+	height: 40px;
+}
+.el-icon-document::before{
+	content: '\e6d8';
+	height: 40px;
+}
+.el-upload--text{
+	font-size: 10px;
+	color: #12A763;
+}
+// .text{
+// 	font-size: 10px;
+// }
+// .el-upload-list__item-name {
+// 	// height: 50px;
+//     color: #cb5b23;
+//     display: block;
+//     margin-right: 40px;
+//     overflow: hidden;
+//     padding-left: 4px;
+//     text-overflow: ellipsis;
+//     -webkit-transition: color .3s;
+//     transition: color .3s;
+//     white-space: nowrap
+
+	
+// }
+.el-icon-document:before {
+    content: "\e785"
+	
+}
+// .el-upload-list_item {
+// 	height: 110%;
+// }
+// .el-upload-list_item-name{
+// 	height: 110px;
+	
+// }
+
+//修改分页颜色
+.el-pagination{
+	position: absolute;
+	display: inline-block;
+	margin: 0 auto;
+	left:50%;
+	transform: translateX(-50%);
+	background-color: #fafafa;
+	border: solid 1px #dfe8eb;
+	padding: 0 !important;
+	.el-pager{
+		margin: 0 !important;
+		.number{
+			color: #3d66e4 !important;
+			border-left: 1px solid #dfe8eb;
+			border-right: 1px solid #dfe8eb;
+			background-color: #fafafa !important;
+			&.active{
+				color: #fff !important;
+				//border: 1px  solid  #3d66e4;
+				background-color: #3d66e4 !important;
+				border: 1px solid #3d66e4 !important;
+			}
+		}
+		
+	}
+	
+}	
+
+.el-pagination.is-background .btn-next, .el-pagination.is-background .btn-prev, .el-pagination.is-background .el-pager li{
+	margin: 0 !important;
+	background-color: #fafafa !important;
+}
+
+
+//修改checkbox
+.el-checkbox__inner{
+	  border: 1px solid #C0C0C0 ;
+	  width: 16px;
+	  height: 16px;
+	  border-radius: 0;
+}
+
