@@ -7,6 +7,7 @@ class Applications(db.Model):
     sex = db.Column(db.String(100))
     age = db.Column(db.Integer)
     contact = db.Column(db.String(100))
+    add = db.Column(db.String(200))
     educations = db.Column(db.String(100))
     undergraduate = db.Column(db.String(100))
     postgraduate = db.Column(db.String(100))
@@ -19,4 +20,7 @@ class Applications(db.Model):
     interest = db.Column(db.String(100))
     salary =db.Column(db.Integer)
     time = db.Column(db.Date)
+    negWork = db.Column(db.Integer)
+    posWork = db.Column(db.Integer)
+    hisJob = db.Column(db.String)
 
