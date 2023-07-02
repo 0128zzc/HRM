@@ -1,26 +1,32 @@
 <template>
+  <div>
     <div class="basic-container">
-            <el-upload 
+<el-upload 
   drag
  :http-request="uploadFile"
  ref="uploadFile"
   accept=".pdf,.doc ,.png ,.jpg,.docx"
   :limit="fileLimit"
-  :show-file-list="true"
+  :show-file-list="false"
   :file-list="fileList"
   :before-upload="beforeUpload"
   :on-change="onChange" 
   :on-success="uploadSuccess"
   multiple
   >
-  <div class="el-upload__tip" slot="tip" style="font-size: 25px;">只能上传jpg/png文件，且不超过500kb</div>
-  <el-button class="buttonStyle" size="small" type="primary" style="background-color: transparent; padding-top: 13%;">
+  <div class="el-upload__tip" slot="tip" style="font-size: 25px;">支持jpg、pdf、png、jpg、docx</div>
+  <el-button class="buttonStyle" size="small" type="primary" style="background-color: transparent; padding-top: 13%;" @click="handleAddFolder">
         <img :src="this.$store.state.app.mode=='dark'?require('../../assets/images/dark.png'):require('../../assets/images/light.png')" style="background-color: transparent;width: 100%;height: 100%;">
     </el-button>
     <div class="el-upload__text" style="font-size: 25px;">将文件拖到此处，或<em>点击上传</em></div>
+    
 </el-upload>
     </div>
-
+    <!-- <div class="countStyle" style="padding-left:58%;padding-top: 26.2%; font-size: 25px;">
+     上传简历数目 {{ fileList.length }}
+    </div> -->
+    
+  </div>
     
 </template>
 <script>
@@ -35,6 +41,7 @@ export default {
         isShowProgress: false,
         customColor: '#910E0E',
         headers: { "Content-Type": "multipart/form-data" },
+        // length:fileList.length
 
       }
     },
@@ -48,6 +55,13 @@ export default {
     handleChange(file, fileList) {
       this.fileList = fileList;
     },
+
+    handleAddFolder () {
+      this.$nextTick(() => {
+        // this.$refs.uploadFile.$children[0].$refs.input.webkitdirectory = true
+        console.log(this.$refs.uploadFile.$children[0].$refs.input.webkitdirectory)
+      })
+    },
     // uploadFile(file) {
     //   this.formData.append("file", file.file);
     // },
@@ -58,6 +72,7 @@ export default {
       console.log(file);
     },
     beforeUpload(file){
+      // this.form.Folder = file.path
 	if (file.type != "" || file.type != null || file.type != undefined){
 	    //截取文件的后缀，判断文件类型
 		const FileExt = file.name.replace(/.+\./, "").toLowerCase();
@@ -85,10 +100,12 @@ export default {
     console.log(FormDatas)
     console.log(item.file)
     console.log(this.fileList)
-	this.$axios({
+    console.log(item.file.name)
+	  axios({
 		method: 'post',
 		url: '/file/fileUpload',
-		headers:this.headers,
+    headers:{ "Content-Type": "multipart/form-data","filename":item.file.name },
+		// headers:this.headers,
 		timeout: 30000,
 		data: FormDatas
 		}).then(res=>{
@@ -107,6 +124,7 @@ export default {
 onChange(file, fileList) {
       console.log(fileList)
       this.fileList = fileList  //把当前文件赋值给 fileList 
+    
     },
 uploadSuccess: function(response, file, fileList) {
       if(response.meta.status==200){
@@ -135,6 +153,7 @@ uploadSuccess: function(response, file, fileList) {
 </script>
 <style scoped>
 .basic-container {
+  float: right;
     width: 600px;
     height: 400px;
     position:absolute;
@@ -151,6 +170,10 @@ uploadSuccess: function(response, file, fileList) {
     width: 100%;
     height:100%;
     /* position: absolute; */
+
+}
+.countStyle{
+  float: left;
 
 }
 </style>
