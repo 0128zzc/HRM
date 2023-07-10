@@ -1,10 +1,12 @@
 from flask import Blueprint,jsonify,request
 from modules.upload import Upload
 import calendar,time,os
+from flask_jwt_extended import jwt_required
 resumeload_bp = Blueprint("resumeLoad",__name__)
 
 
 @resumeload_bp.route("/")
+@jwt_required()
 def Hello():
     return "Helloo"
 

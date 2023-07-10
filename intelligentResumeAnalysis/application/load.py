@@ -1,4 +1,4 @@
-from flask import Blueprint,request
+from flask import Blueprint,request,jsonify
 from modules.usesr import User
 from flask_jwt_extended import create_access_token
 from sqlalchemy.orm import sessionmaker
@@ -24,11 +24,11 @@ def register():
     return "I`m Gloria"
 
 @load_bp.route('/ttt')
-@jwt_required
+@jwt_required()
 def ttt():
     # user = User(name='aaa',password='zzz')
     # db.session.add(user)
     # db.session.commit()
-    username = get_jwt_identity()
-    
-    return ""
+    # username = get_jwt_identity()
+    userInfo = get_jwt_identity()
+    return jsonify(userInfo)
